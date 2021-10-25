@@ -1,16 +1,9 @@
 const path = require('path')
-let mode = 'development'
-let target = 'web'
-
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-if (process.env.NODE_ENV === 'production') {
-  mode = 'production'
-  target = 'browserslist'
-}
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  mode: mode,
-  target: target,
+  mode: 'development',
 
   module: {
     rules: [
@@ -23,21 +16,45 @@ module.exports = {
           'sass-loader',
         ],
       },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-        },
-      },
     ],
   },
+  entry: {
+    index: './src/assets/js/index.js',
 
-  plugins: [new MiniCssExtractPlugin()],
+    login: './src/assets/js/login.js',
 
+    register: './src/assets/js/register.js',
+
+    api: './src/assets/js/api.js',
+  },
+  plugins: [
+    new MiniCssExtractPlugin(),
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: './src/index.html',
+      chunks: ['index'],
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'login.html',
+      template: './src/login.html',
+      chunks: ['login'],
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'register.html',
+      template: './src/register.html',
+      chunks: ['register'],
+    }),
+  ],
+  output: {
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    clean: true,
+  },
   devtool: 'source-map',
   devServer: {
     static: './dist',
     hot: true,
+    compress: true,
+    port: 9000,
   },
 }

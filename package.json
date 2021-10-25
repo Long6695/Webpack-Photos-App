@@ -2,15 +2,12 @@
   "private": true,
   "scripts": {
     "start": "webpack serve",
-    "watch": "webpack --watch",
     "build": "NODE_ENV=production webpack",
     "build-dev": "webpack"
   },
   "devDependencies": {
-    "@babel/core": "^7.15.8",
-    "@babel/preset-env": "^7.15.8",
-    "babel-loader": "^8.2.3",
     "css-loader": "^6.4.0",
+    "html-webpack-plugin": "^5.4.0",
     "mini-css-extract-plugin": "^2.4.3",
     "postcss": "^8.3.11",
     "postcss-loader": "^6.2.0",
@@ -20,5 +17,8 @@
     "webpack": "^5.59.1",
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.3.1"
+  },
+  "dependencies": {
+    "axios": "^0.23.0"
   }
 }
