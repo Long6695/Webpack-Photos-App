@@ -5,6 +5,11 @@ const token = sessionStorage.getItem('token')
 const firstName = document.getElementById('firstname')
 const avatar = document.getElementById('avatar')
 const logoutBtn = document.getElementById('log-out')
+const addBtn = document.getElementById('add-btn')
+
+addBtn.addEventListener('click', () => {
+  window.location.href = '/addphoto.html'
+})
 
 logoutBtn.addEventListener('click', () => {
   sessionStorage.removeItem('token')
@@ -24,7 +29,7 @@ const doubleCheck = async () => {
     const htmls = photos.map((photo) => {
       console.log(photo)
       return `
-      <div class="photos__group" ${photo.id}>
+      <div class="photos__group" id="${photo._id}">
       <div class="photos__group__main">
         <div class="photos__group__main__img">
         <img id="avatar" class="photos__group__main--img" src="${photo.image}" alt="" />

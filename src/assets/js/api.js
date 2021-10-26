@@ -39,3 +39,22 @@ export const getListPhotos = async (token) => {
     },
   })
 }
+
+export const addPhoto = async (token, image, title, description, category) => {
+  const bodyData = {
+    image,
+    title,
+    description,
+    category,
+  }
+
+  return axios({
+    method: 'POST',
+    url: API + 'api/photo',
+    data: bodyData,
+    headers: {
+      'Content-Type': 'application/json',
+      'x-auth-token': token,
+    },
+  })
+}

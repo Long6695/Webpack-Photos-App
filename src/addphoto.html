@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Photo</title>
+  </head>
+  <body>
+    <h2 class="title">Add New Album</h2>
+    <form id="add-form" class="add__form">
+      <div class="add__form-group">
+        <label for="category">Category</label>
+        <select rules="required" name="category" id="category">
+          <option value="">Choose...</option>
+          <option value="sport">Sport</option>
+          <option value="nature">Nature</option>
+        </select>
+      </div>
+      <div class="add__form-group">
+        <label for="name">Name</label>
+        <input
+          name="name"
+          rules="required"
+          type="text"
+          placeholder="Enter Name"
+          class="name"
+          id="name"
+        />
+        <small class="message"></small>
+      </div>
+      <div class="add__form-group">
+        <label for="image">Image</label>
+        <input
+          name="image"
+          rules="required"
+          type="text"
+          placeholder="Enter Image Link"
+          class="image"
+          id="image"
+        />
+        <small class="message"></small>
+      </div>
+      <div class="add__form-group">
+        <label for="description">Description</label>
+        <input
+          name="description"
+          rules="required"
+          type="text"
+          placeholder="Enter Description"
+          class="description"
+          id="description"
+        />
+        <small class="message"></small>
+      </div>
+      <input type="submit" placeholder="Submit" />
+    </form>
+  </body>
+</html>

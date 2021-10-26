@@ -26,6 +26,10 @@ module.exports = {
     register: './src/assets/js/register.js',
 
     api: './src/assets/js/api.js',
+
+    addphoto: './src/assets/js/addphoto.js',
+
+    validate: './src/assets/js/validate.js',
   },
   plugins: [
     new MiniCssExtractPlugin(),
@@ -43,6 +47,11 @@ module.exports = {
       filename: 'register.html',
       template: './src/register.html',
       chunks: ['register'],
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'addphoto.html',
+      template: './src/addphoto.html',
+      chunks: ['addphoto'],
     }),
   ],
   output: {

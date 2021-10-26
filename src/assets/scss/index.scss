@@ -133,9 +133,9 @@
   padding: 0.6rem 1rem;
 }
 
-$max-width: 100rem;
+$max-width: 120rem;
 .photos {
-  max-width: calc($max-width + 15rem);
+  max-width: calc($max-width + 12rem);
   width: 100%;
   display: flex;
   align-items: center;
@@ -184,6 +184,7 @@ $max-width: 100rem;
     margin-bottom: 5rem;
     border: 1px solid rgb(175, 175, 175);
     border-radius: 0.5rem;
+    overflow: hidden;
     @media screen and (max-width: 48rem) {
       flex: 0 0 100%;
     }
@@ -207,7 +208,8 @@ $max-width: 100rem;
         }
       }
       &__des {
-        font-size: 1.6rem;
+        height: 6rem;
+        font-size: 1.7rem;
         color: variable.$color-dark-text;
         text-align: center;
         font-weight: 500;
@@ -221,13 +223,15 @@ $max-width: 100rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 1.5rem;
+      padding: 1.5rem 1.5rem;
+      border-top: 1px solid #afafaf;
+      background-color: #f7f7f7;
 
       .photo__btn {
         margin: 0 0.5rem;
         color: variable.$color-white;
         background-color: variable.$bg-btn;
-        padding: 0.7rem 1.5rem;
+        padding: 0.9rem 1.5rem;
         transition: all 0.3s ease-in-out;
 
         &:active {
@@ -301,5 +305,27 @@ $max-width: 100rem;
     text-decoration: none;
     color: rgb(18, 18, 175);
     font-size: 2rem;
+    @media screen and (max-width: 48rem) {
+      padding: 0.6rem 1rem;
+    }
+  }
+}
+
+.back-top {
+  display: inline-block;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  color: rgb(18, 18, 175);
+  font-size: 1.6rem;
+  border: 1px solid #333;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+
+  &:hover {
+    background-color: rgb(18, 18, 175);
+    color: #fff;
+  }
+  &:active {
+    animation: btn 0.3s ease-in-out;
   }
 }
