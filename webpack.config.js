@@ -30,6 +30,8 @@ module.exports = {
     addphoto: './src/assets/js/addphoto.js',
 
     validate: './src/assets/js/validate.js',
+
+    detailphoto: './src/assets/js/detailphoto.js',
   },
   plugins: [
     new MiniCssExtractPlugin(),
@@ -52,6 +54,11 @@ module.exports = {
       filename: 'addphoto.html',
       template: './src/addphoto.html',
       chunks: ['addphoto'],
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'detailphoto.html',
+      template: './src/detailphoto.html',
+      chunks: ['detailphoto'],
     }),
   ],
   output: {

@@ -34,7 +34,7 @@ export const getListPhotos = async (token) => {
     method: 'GET',
     url: API + 'api/photo',
     headers: {
-      'Content-Type': 'application/json',
+      // 'Content-Type': 'application/json',
       'x-auth-token': token,
     },
   })
@@ -53,7 +53,17 @@ export const addPhoto = async (token, image, title, description, category) => {
     url: API + 'api/photo',
     data: bodyData,
     headers: {
-      'Content-Type': 'application/json',
+      // 'Content-Type': 'application/json',
+      'x-auth-token': token,
+    },
+  })
+}
+
+export const getPhotoById = async (id, token) => {
+  return axios({
+    method: 'GET',
+    url: API + 'api/photo/' + id,
+    headers: {
       'x-auth-token': token,
     },
   })

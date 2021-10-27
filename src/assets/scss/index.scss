@@ -315,16 +315,28 @@ $max-width: 120rem;
   display: inline-block;
   padding: 1rem 2rem;
   text-decoration: none;
-  color: rgb(18, 18, 175);
+  color: variable.$color-light-text;
   font-size: 1.6rem;
   border: 1px solid #333;
   border-radius: 5px;
-  background-color: #f7f7f7;
+  background-color: transparent;
+  position: relative;
 
-  &:hover {
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
     background-color: rgb(18, 18, 175);
-    color: #fff;
+    transition: width 0.25s linear;
+    z-index: -1;
   }
+  &:hover::before {
+    width: 100%;
+  }
+
   &:active {
     animation: btn 0.3s ease-in-out;
   }

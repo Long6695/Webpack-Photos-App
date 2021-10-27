@@ -26,28 +26,41 @@ const doubleCheck = async () => {
     const photos = resPhoto.data.data
 
     const photoGroup = document.getElementById('photos__wrapper')
+
     const htmls = photos.map((photo) => {
-      console.log(photo)
       return `
       <div class="photos__group" id="${photo._id}">
       <div class="photos__group__main">
-        <div class="photos__group__main__img">
-        <img id="avatar" class="photos__group__main--img" src="${photo.image}" alt="" />
-        </div>
-        <div class="photos__group__main__des">
-          ${photo.description}
-        </div>
+      <div class="photos__group__main__img">
+      <img id="avatar" class="photos__group__main--img" src="${
+        photo.image
+      }" alt="" />
+      </div>
+      <div class="photos__group__main__des">
+      ${photo.description}
+      </div>
       </div>
       <div class="photos__group__footer">
-        <div class="photos__group__footer--btn">
-          <button class="btn photo__btn">View</button>
-          <button class="btn photo__btn">Edit</button>
-        </div>
-        <div class="photos__group__footer--time"><span>9 mins</span></div>
+      <div class="photos__group__footer--btn">
+      <button class="btn photo__btn" onclick="sessionStorage.setItem('id','${
+        photo._id
+      }')
+      window.location.href = '/detailphoto.html'
+      ">
+      
+      View
+      
+      </button>
+      <button class="btn photo__btn">Edit</button>
       </div>
-    </div>
+      <div class="photos__group__footer--time"><span>${new Date(
+        photo.date
+      ).getMinutes()} mins ago</span></div>
+      </div>
+      </div>
       `
     })
+
     photoGroup.innerHTML = htmls.join('')
   } catch (error) {
     window.location.href = '/login.html'
