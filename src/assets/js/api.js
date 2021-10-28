@@ -68,3 +68,30 @@ export const getPhotoById = async (id, token) => {
     },
   })
 }
+
+export const addNewUser = async (
+  avatar,
+  firstName,
+  lastName,
+  email,
+  role = 'operator',
+  password
+) => {
+  const dataBody = {
+    avatar: avatar,
+    firstName: firstName,
+    lastName: lastName,
+    email: email,
+    role: role,
+    password: password,
+  }
+
+  return axios({
+    method: 'POST',
+    url: API + 'api/user/register',
+    data: dataBody,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+}

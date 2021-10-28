@@ -2,6 +2,11 @@ import { loginUser } from './api'
 const emailInput = document.getElementById('email_address')
 const passwordInput = document.getElementById('password')
 const formSubmit = document.getElementById('login-form')
+const btnLink = document.querySelector('.btn-link')
+
+btnLink.addEventListener('click', () => {
+  window.location.href = 'register.html'
+})
 console.log(emailInput.value, passwordInput.value)
 
 if (sessionStorage.getItem('token')) {
