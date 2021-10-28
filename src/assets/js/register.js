@@ -3,9 +3,14 @@ import { Validator } from '../js/validate'
 import { addNewUser } from './api'
 
 const randomBtn = document.getElementById('header__btn')
-const avatar = document.querySelector('#avatar')
 const token = sessionStorage.getItem('token')
 const btnLink = document.querySelector('.btn-link')
+
+randomBtn.addEventListener('click', () => {
+  const randomNum = Math.floor(Math.random() * 50)
+  const avatar = document.getElementById('avatar')
+  avatar.src = `https://i.pravatar.cc/150?img=${randomNum}`
+})
 
 btnLink.addEventListener('click', () => {
   window.location.href = 'login.html'
@@ -14,10 +19,6 @@ btnLink.addEventListener('click', () => {
 if (token !== null) {
   window.location.href = '/index.html'
 }
-
-randomBtn.addEventListener('click', () => {
-  console.log('abc')
-})
 
 Validator('#add-form', {
   onSubmit(data) {
