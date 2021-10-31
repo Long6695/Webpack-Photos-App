@@ -6,6 +6,8 @@ const randomBtn = document.getElementById('header__btn')
 const token = sessionStorage.getItem('token')
 const btnLink = document.querySelector('.btn-link')
 
+avatar.src = 'https://i.pravatar.cc/150?img=01'
+
 randomBtn.addEventListener('click', () => {
   const randomNum = Math.floor(Math.random() * 50)
   const avatar = document.getElementById('avatar')
