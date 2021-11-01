@@ -75,7 +75,7 @@ const doubleCheck = async (page = 1) => {
     const previousBtn = document.querySelector('.page__previous--btn')
 
     let pageIndex = parseInt(pageParam)
-    console.log(pageIndex)
+
     nextBtn.addEventListener('click', () => {
       if (pageIndex === pageNum) {
         nextBtn.classList.add('disabled')
@@ -87,11 +87,10 @@ const doubleCheck = async (page = 1) => {
     })
 
     previousBtn.addEventListener('click', () => {
-      if (pageIndex === 1) {
+      if (pageIndex <= 1) {
         previousBtn.classList.add('disabled')
       } else {
         pageIndex--
-        previousBtn.classList.remove('disabled')
         window.location.replace(`/index.html?page=${pageIndex}`)
         doubleCheck(pageIndex)
       }
@@ -126,6 +125,7 @@ function paginition(num) {
     item.addEventListener('click', () => {
       window.location.replace(`/index.html?page=${index + 1}`)
       const currentIndex = index + 1
+
       doubleCheck(currentIndex)
     })
   })
