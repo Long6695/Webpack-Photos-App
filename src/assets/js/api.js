@@ -29,10 +29,10 @@ export const checkAuth = async (token) => {
   })
 }
 
-export const getListPhotos = async (token) => {
+export const getListPhotos = async (token, page, limit) => {
   return axios({
     method: 'GET',
-    url: API + 'api/photo',
+    url: API + `api/photo?page=${page}&limit=${limit}`,
     headers: {
       // 'Content-Type': 'application/json',
       'x-auth-token': token,
