@@ -30,6 +30,7 @@ const doubleCheck = async (page = 1) => {
     const photos = resPhoto.data.data
 
     const photoGroup = document.getElementById('photos__wrapper')
+    const pageNum = Math.round(resPhoto.data.total / resPhoto.data.limit)
 
     const htmls = photos.map((photo) => {
       return `
@@ -68,32 +69,34 @@ const doubleCheck = async (page = 1) => {
     })
 
     photoGroup.innerHTML = htmls.join('')
-    const pageNum = Math.round(resPhoto.data.total / resPhoto.data.limit)
+
     paginition(pageNum)
 
     const nextBtn = document.querySelector('.page__next--btn')
     const previousBtn = document.querySelector('.page__previous--btn')
 
     let pageIndex = parseInt(pageParam)
+    const plusOne = pageNum + 1
+    const pageArray = Array.from(Array(plusOne).keys())
+
+    if (pageIndex === pageArray[1]) {
+      previousBtn.classList.add('disabled')
+    }
+
+    if (pageIndex === pageArray[pageArray.length - 1]) {
+      nextBtn.classList.add('disabled')
+    }
 
     nextBtn.addEventListener('click', () => {
-      if (pageIndex === pageNum) {
-        nextBtn.classList.add('disabled')
-      } else {
-        pageIndex++
-        window.location.replace(`/index.html?page=${pageIndex}`)
-        doubleCheck(pageIndex)
-      }
+      pageIndex++
+      window.location.replace(`/index.html?page=${pageIndex}`)
+      doubleCheck(pageIndex)
     })
 
     previousBtn.addEventListener('click', () => {
-      if (pageIndex <= 1) {
-        previousBtn.classList.add('disabled')
-      } else {
-        pageIndex--
-        window.location.replace(`/index.html?page=${pageIndex}`)
-        doubleCheck(pageIndex)
-      }
+      pageIndex--
+      window.location.replace(`/index.html?page=${pageIndex}`)
+      doubleCheck(pageIndex)
     })
 
     const currentLi = document.querySelector(
