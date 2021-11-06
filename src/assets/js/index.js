@@ -6,7 +6,6 @@ const firstName = document.getElementById('firstname')
 const avatar = document.getElementById('avatar')
 const logoutBtn = document.getElementById('log-out')
 const addBtn = document.getElementById('add-btn')
-
 addBtn.addEventListener('click', () => {
   window.location.href = '/addphoto.html'
 })
@@ -30,7 +29,13 @@ const doubleCheck = async (page = 1) => {
     const photos = resPhoto.data.data
 
     const photoGroup = document.getElementById('photos__wrapper')
-    const pageNum = Math.round(resPhoto.data.total / resPhoto.data.limit)
+
+    let pageNum
+    if (pageNum % 2 !== 0) {
+      pageNum = Math.ceil(resPhoto.data.total / resPhoto.data.limit)
+    } else {
+      pageNum = Math.floor(resPhoto.data.total / resPhoto.data.limit)
+    }
 
     const htmls = photos.map((photo) => {
       return `
@@ -57,7 +62,11 @@ const doubleCheck = async (page = 1) => {
       View
       
       </button>
-      <button class="btn photo__btn">Edit</button>
+      <button id="edit-btn" class="btn photo__btn" onclick="sessionStorage.setItem('id','${
+        photo._id
+      }')
+      window.location.href = '/editphoto.html'
+      ">Edit</button>
       </div>
       <div class="photos__group__footer--time"><span>${new Date(
         photo.date
@@ -110,7 +119,8 @@ const doubleCheck = async (page = 1) => {
 doubleCheck()
 
 function paginition(num) {
-  const numArray = Array.from(Array(num).keys())
+  let numArray = Array.from(Array(num).keys())
+
   const ul = document.querySelector('.page__nav')
   const liArray = numArray.map((item, index) => {
     return `

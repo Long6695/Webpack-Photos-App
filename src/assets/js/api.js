@@ -95,3 +95,28 @@ export const addNewUser = async (
     },
   })
 }
+
+export const updatePhoto = async (
+  id,
+  token,
+  image,
+  title,
+  description,
+  category
+) => {
+  const bodyData = {
+    image,
+    title,
+    description,
+    category,
+  }
+
+  return axios({
+    method: 'PUT',
+    url: API + 'api/photo/' + id,
+    data: bodyData,
+    headers: {
+      'x-auth-token': token,
+    },
+  })
+}
