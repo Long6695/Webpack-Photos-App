@@ -1,0 +1,115 @@
+@use 'global';
+@use 'variable';
+
+body {
+  background-color: #cbf3f0;
+}
+
+.main {
+  background-color: #82c0cc;
+  color: #fff;
+  margin-top: 20rem;
+  max-width: 42rem;
+  width: 100%;
+  border-radius: 2px;
+
+  @media screen and (max-width: 50rem) {
+    margin-top: 5rem;
+  }
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+
+    h2 {
+      font-size: 4rem;
+      margin: 3rem 0;
+      letter-spacing: 1.5px;
+    }
+
+    .form-group {
+      width: 100%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      margin-bottom: 2.5rem;
+
+      #message {
+        font-size: 1.6rem;
+        display: inline-block;
+        margin-top: 1rem;
+        letter-spacing: 1.2px;
+      }
+
+      &-control {
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        input {
+          width: 90%;
+          height: 3.8rem;
+          outline: none;
+          padding: 0 4rem;
+          font-size: 1.8rem;
+          color: #02c39a;
+        }
+
+        i {
+          position: absolute;
+          left: 3rem;
+          top: 50%;
+          color: #02c39a;
+          font-size: 1.8rem;
+          transform: translateY(-50%);
+        }
+      }
+    }
+    &--link {
+      margin: 0 0 2rem 0;
+
+      a {
+        font-size: 1.8rem;
+        color: rgb(255, 255, 255);
+        cursor: pointer;
+
+        span {
+          color: #02c39a;
+          font-weight: bolder;
+          font-size: 2rem;
+        }
+      }
+    }
+
+    &--submit {
+      border: none;
+      outline: none;
+      padding: 1.5rem 3.5rem;
+      letter-spacing: 1.2px;
+      border-radius: 2px;
+      font-size: 1.8rem;
+      background-color: #02c39a;
+      color: #fff;
+      border-bottom: 2px solid #03af8a;
+      transition: all 0.3s;
+      cursor: pointer;
+
+      margin-bottom: 2.5rem;
+
+      &:hover {
+        transform: translateY(-3px);
+      }
+
+      &:active {
+        transform: translateY(3px);
+      }
+    }
+  }
+}

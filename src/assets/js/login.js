@@ -1,8 +1,11 @@
+import '../scss/login.scss'
 import { loginUser } from './api'
 const emailInput = document.getElementById('email_address')
 const passwordInput = document.getElementById('password')
 const formSubmit = document.getElementById('login-form')
 const btnLink = document.querySelector('.btn-link')
+
+console.log(btnLink)
 
 btnLink.addEventListener('click', () => {
   window.location.href = 'register.html'
@@ -21,7 +24,7 @@ formSubmit.addEventListener('submit', async (e) => {
     window.location.href = '/index.html'
   } catch (error) {
     const message = document.getElementById('message')
-    message.style.color = 'red'
+    message.style.color = '#a21112'
     message.innerText = error.response.data.msg
   }
 })

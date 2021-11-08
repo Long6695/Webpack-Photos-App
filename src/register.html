@@ -4,67 +4,91 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <title>Document</title>
   </head>
   <body>
-    <div class="header">
-      <h2 class="header__title">Sign Up</h2>
-      <div class="header__img">
-        <img id="avatar" src="" alt="" />
-      </div>
-      <button id="header__btn" class="header__btn">Random Photo</button>
+    <div class="main">
+      <form id="add-form" class="add__form">
+        <div class="header">
+          <h2 class="header__title">Sign Up</h2>
+          <div class="header__img">
+            <img id="avatar" src="" alt="" />
+          </div>
+          <a id="header__btn" class="header__btn">Random Photo</a>
+        </div>
+        <div class="add__form-group">
+          <div class="add__form-group--control">
+            <i class="far fa-user"></i>
+            <input
+              name="firstName"
+              rules="required"
+              type="text"
+              placeholder="First Name"
+              class="firstname"
+              id="firstname"
+            />
+          </div>
+          <small class="message"></small>
+        </div>
+        <div class="add__form-group">
+          <div class="add__form-group--control">
+            <i class="far fa-user"></i>
+
+            <input
+              name="lastName"
+              rules="required"
+              type="text"
+              placeholder="Last Name"
+              class="lastname"
+              id="lastname"
+            />
+          </div>
+          <small class="message"></small>
+        </div>
+        <div class="add__form-group">
+          <div class="add__form-group--control">
+            <i class="fas fa-envelope"></i>
+
+            <input
+              name="email"
+              rules="required|email"
+              type="email"
+              placeholder="Email"
+              class="email"
+              id="email"
+            />
+          </div>
+          <small class="message" id="message-email"></small>
+        </div>
+        <div class="add__form-group">
+          <div class="add__form-group--control">
+            <i class="fas fa-lock"></i>
+
+            <input
+              name="password"
+              rules="required|min:6"
+              type="password"
+              placeholder="Password"
+              class="password"
+              id="password"
+            />
+          </div>
+          <small class="message"></small>
+        </div>
+        <div class="add__form--link">
+          <a href="#login.html" class="btn-link"
+            >Have an account? <span>Sign In</span></a
+          >
+        </div>
+        <input type="submit" placeholder="Submit" class="add__form--submit" />
+      </form>
     </div>
-    <form id="add-form" class="add__form">
-      <div class="add__form-group">
-        <label for="firstname">First Name</label>
-        <input
-          name="firstName"
-          rules="required"
-          type="text"
-          placeholder="Enter Your First Name"
-          class="firstname"
-          id="firstname"
-        />
-        <small class="message"></small>
-      </div>
-      <div class="add__form-group">
-        <label for="lastname">Last Name</label>
-        <input
-          name="lastName"
-          rules="required"
-          type="text"
-          placeholder="Enter Your Last Name"
-          class="lastname"
-          id="lastname"
-        />
-        <small class="message"></small>
-      </div>
-      <div class="add__form-group">
-        <label for="email">Email</label>
-        <input
-          name="email"
-          rules="required|email"
-          type="email"
-          placeholder="Enter Your Email"
-          class="email"
-          id="email"
-        />
-        <small class="message" id="message-email"></small>
-      </div>
-      <div class="add__form-group">
-        <label for="password">Password</label>
-        <input
-          name="password"
-          rules="required|min:6"
-          type="password"
-          placeholder="Enter Password"
-          class="password"
-          id="password"
-        />
-        <small class="message"></small>
-      </div>
-      <input type="submit" placeholder="Submit" />
-      <a href="#login.html" class="btn-link">Have an account? Sign In</a>
-    </form>
   </body>
 </html>
